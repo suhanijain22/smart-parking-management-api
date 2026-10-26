@@ -1,0 +1,16 @@
+{
+  "info": {"name":"Smart Parking Management API","_postman_id":"9b786e7d-7e2a-4d2a-9e6c-9b5e79c91c12","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable":[{"key":"baseUrl","value":"http://localhost:8080"},{"key":"bookingId","value":"1"}],
+  "item":[
+    {"name":"List all slots","request":{"method":"GET","url":"{{baseUrl}}/api/slots"}},
+    {"name":"Available slots","request":{"method":"GET","url":"{{baseUrl}}/api/slots/available"}},
+    {"name":"Occupied slots","request":{"method":"GET","url":"{{baseUrl}}/api/slots/occupied"}},
+    {"name":"Book entry (auto slot)","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{
+  "vehicleNumber": "MH12AB1234"
+}"},"url":"{{baseUrl}}/api/bookings/entry"}},
+    {"name":"Active bookings","request":{"method":"GET","url":"{{baseUrl}}/api/bookings/active"}},
+    {"name":"Calculate fare","request":{"method":"GET","url":"{{baseUrl}}/api/bookings/{{bookingId}}/fare"}},
+    {"name":"Checkout","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{}"},"url":"{{baseUrl}}/api/bookings/{{bookingId}}/checkout"}},
+    {"name":"Daily revenue","request":{"method":"GET","url":"{{baseUrl}}/api/revenue?date=2026-10-26"}}
+  ]
+}
